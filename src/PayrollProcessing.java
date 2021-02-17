@@ -41,7 +41,7 @@ public class PayrollProcessing {
     /**
      * Hourly pay rate of a part-time employee
      */
-    public double hourly_pay_rate;
+    public double hourlyPayRate;
 
     /**
      * Working Hours of a part-time employee
@@ -65,6 +65,8 @@ public class PayrollProcessing {
     public void run() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Payroll Processing running.");
+
+        Company company = new Company();
 
         for(;;){
             input = sc.nextLine();
@@ -117,7 +119,7 @@ public class PayrollProcessing {
             if(st.hasMoreTokens()){ //Set salary or hours or hourly pay rate
                 switch (command) {
 
-                    case "AP" -> hourly_pay_rate = Double.parseDouble(st.nextToken()); //set part-time hourly rate
+                    case "AP" -> hourlyPayRate = Double.parseDouble(st.nextToken()); //set part-time hourly rate
 
                     case "AF", "AM" -> salary = Double.parseDouble(st.nextToken()); //Set annual salary for full time
 
@@ -132,6 +134,29 @@ public class PayrollProcessing {
                         continue;
                     }
                 }
+            }
+
+            if(command.equals("AF")){
+
+                Profile profile = new Profile(name, dept, date);
+
+                Fulltime fulltime = new Fulltime(profile, salary);
+
+                company.add(fulltime);
+            }
+            else if(command.equals("AP")){
+
+                Profile profile = new Profile(name, dept, date);
+
+                Parttime parttime = new Parttime(profile, hourlyPayRate);
+                company.add(parttime);
+            }
+            else if(command.equals("AM")){
+
+                Profile profile = new Profile(name, dept, date);
+
+                Employee management = new Management(profile, salary, role);
+                company.add(management);
             }
         }
     }
