@@ -1,11 +1,21 @@
 public class Fulltime extends Employee{
 
-
+    /**
+     *
+     */
     public double salary;
-
+    public double payment = 0;
+    /**
+     *
+     */
     public Fulltime(){
     }
 
+    /**
+     *
+     * @param profile
+     * @param salary
+     */
     public Fulltime(Profile profile, double salary){
 
         super(profile);
@@ -20,7 +30,12 @@ public class Fulltime extends Employee{
      *
      */
     @Override
-    public void calculatePayment() { }
+    public void calculatePayment() {
+
+        payment = salary / 26;
+        payment = Math.round(payment * 100.0) / 100.0; //Round off to two decimal places
+
+    }
 
     /**
      *
@@ -31,7 +46,7 @@ public class Fulltime extends Employee{
     public boolean equals(Object obj){
 
         if(obj instanceof Fulltime){
-            return true;
+            return super.equals(obj);
         }
         return false;
     }

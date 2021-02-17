@@ -142,22 +142,75 @@ public class PayrollProcessing {
 
                 Fulltime fulltime = new Fulltime(profile, salary);
 
-                company.add(fulltime);
+                if(company.add(fulltime)){
+                    System.out.println("Employee added.");
+                }
+                else{
+                    System.out.println("Employee is already in the list.");
+                }
             }
             else if(command.equals("AP")){
 
                 Profile profile = new Profile(name, dept, date);
 
                 Parttime parttime = new Parttime(profile, hourlyPayRate);
-                company.add(parttime);
+
+                if(company.add(parttime)){
+                    System.out.println("Employee added.");
+                }
+                else{
+                    System.out.println("Employee is already in the list.");
+                }
             }
             else if(command.equals("AM")){
 
+                if(role < 1 || role > 3){
+                    System.out.println("Invalid management code.");
+                    continue;
+                }
+
                 Profile profile = new Profile(name, dept, date);
 
-                Employee management = new Management(profile, salary, role);
-                company.add(management);
+                Management management = new Management(profile, salary, role);
+
+                if(company.add(management)){
+                    System.out.println("Employee added.");
+                }
+                else{
+                    System.out.println("Employee is already in the list.");
+                }
             }
+            else if(command.equals("C")){
+
+                if(company.getNumEmployee() == 0){
+                    System.out.println("Employee database empty.");
+                    continue;
+                }
+                company.processPayments();
+                System.out.print("Calculation of employee payments done.");
+            }
+            else if(command.equals("S")){
+
+                if(hours < 0 || hours > 100){
+                    System.out.println("Hours cannot be less than 0 and greater than 100");
+                    continue;
+                }
+
+                Profile profile = new Profile(name, dept, date);
+
+                Parttime part_emp = new Parttime();
+
+                part_emp.profile = profile; //Set profile
+                part_emp.setHours(hours); // Set hours
+
+                if(company.setHours(part_emp)){
+                    System.out.println("Working hours set");
+                }
+                else{
+                    System.out.println("Employee database empty.");
+                }
+            }
+
         }
     }
 

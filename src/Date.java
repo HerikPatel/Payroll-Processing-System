@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
  * Used to create Date object
  * @author Malav Doshi and Herik Patel
  */
-public class Date {
+public class Date implements Comparable<Date> {
     /**
      * year of publishing
      */
@@ -153,6 +153,41 @@ public class Date {
             }
         }
         return false;
+    }
+
+    @Override
+    public int compareTo(Date date) {
+
+        if(date.getYear() > this.year){ //Check for years
+            return -1;
+        }
+        else if(date.getYear() < this.year){
+            return 1;
+        }
+
+        else if (date.year == this.year) {
+
+            if(date.month == this.month){ //Check for months
+
+                if(date.day < this.day){// Check days if years and months equal of both the objects
+                    return 1;
+                }
+                else if(date.day > this.day){
+                    return -1;
+                }
+                else {
+                    return 0; //Dates are equal
+                }
+            }
+            else if(date.month < this.month){
+                return 1;
+            }
+            else {
+                return -1;
+            }
+        }
+
+        return 1;
     }
 
     /**
