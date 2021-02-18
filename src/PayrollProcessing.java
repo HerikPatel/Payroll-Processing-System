@@ -210,13 +210,18 @@ public class PayrollProcessing {
                     System.out.println("Employee database empty.");
                 }
             }
+            else if(command.equals("R")){
+                Profile profile = new Profile(name, dept, date);
+                Parttime parttime = new Parttime(profile, 45.9);
+                company.remove(parttime);
+
+            }
 
         }
     }
 
     /**
      * Used to check if a given command is valid or not
-     * @author Malav Doshi and Herik Patel
      * @param st Takes the String Tokenizer object which contains the user-input command
      * @return True if command is valid. False otherwise.
      */
@@ -244,7 +249,6 @@ public class PayrollProcessing {
 
     /**
      * Used to check if the Department of the employee is valid or not
-     * @author Malav Doshi and Herik Patel
      * @return True if valid department. False otherwise.
      */
     public boolean checkDept(){

@@ -1,23 +1,28 @@
 public class Company {
 
     /**
-     *
+     * Array that stores data about Employees
      */
     private Employee[] emplist;
 
     /**
-     *
+     * Integer value to keep track length of emplist
      */
     private int numEmployee;
 
     /**
-     *
+     * Constructor which is used to instantiate emplist array which stores Employee data
      */
     public Company(){
         emplist = new Employee[4];
         numEmployee = 0;
     }
 
+    /**
+     * This method is used to find index for data type Employee which is stored in the array
+     * @param employee An Employee data type which we want to locate in array
+     * @return index of the result or -1 if the element is not in the array
+     */
     private int find(Employee employee) {
         int i;
         for(i=0;i<numEmployee;i++){
@@ -30,7 +35,7 @@ public class Company {
     }
 
     /**
-     *
+     * This methods is used to increase the size of the array by 4
      */
     private void grow() {
 
@@ -45,9 +50,9 @@ public class Company {
     }
 
     /**
-     *
-     * @param employee
-     * @return
+     * This method is used to add employee to the array which data for all employees
+     * @param employee It is of type Employee which has to be added to the array
+     * @return true is employee is added to the array or returns false which means employee is already in the array
      */
     public boolean add(Employee employee) { //check the profile before adding
 
@@ -66,7 +71,8 @@ public class Company {
 
         int index = find(employee);
 
-        if(emplist[index].equals(employee)){
+
+        if(index!=-1 && ((emplist[index].equals(employee)))){
             return false;
         }
 
@@ -81,9 +87,9 @@ public class Company {
     }
 
     /**
-     *
-     * @param employee
-     * @return
+     *Removes an Employee from the the array if employee is not in the array it returns false
+     * @param employee Employee object which has to be removed
+     * @return True if employee is removed form the array else returns False
      */
     public boolean remove(Employee employee) {//maintain the original sequence
 
@@ -94,9 +100,26 @@ public class Company {
         if(index == NOT_FOUND){
             return false;
         }
+        if (index==numEmployee-1) {
+            numEmployee--;
+            return true;
+        }
+        for(int i=index;i<numEmployee-1;i++)   // Overwriting the values in the array to remove particular book
+        {
+            Employee tempEmployee = new Employee();
+            tempEmployee=emplist[i+1];
+            emplist[i]=tempEmployee;
+        }
+        numEmployee--;
 
         return true;
     }
+
+    /**
+     * This method is used to set working hours for employee
+     * @param employee Employee whose hours we need to set
+     * @return true after hours are set for employee or returns false if employee is not in the array
+     */
 
     public boolean setHours(Employee employee) { //set working hours for a part time
 

@@ -1,20 +1,20 @@
 public class Employee {
 
     /**
-     *
+     * Object of type Profile
      */
     Profile profile;
 
     /**
-     *
+     * Constructor for class Employee
      */
     public Employee(){
     }
 
 
     /**
-     *
-     * @param profileIn
+     *Constructor for class Employee used to instantiate values
+     * @param profileIn Profile which we want to assign the object to
      */
     public Employee(Profile profileIn){
         profile = new Profile(profileIn.getName(), profileIn.getDepartment(), profileIn.getDateHired());
@@ -27,9 +27,9 @@ public class Employee {
 
 
     /**
-     *
-     * @param obj
-     * @return
+     * This method is used to check that we are not entering a employee multiple times
+     * @param obj Object which we want to compare to see is employee already exist
+     * @return true if employee already exist else return false
      */
     @Override
     public boolean equals(Object obj){
@@ -53,8 +53,8 @@ public class Employee {
 
 
     /**
-     *
-     * @return
+     * Used to convert fields like name, department, date hired to string
+     * @return String value of fields like name,department and date hired
      */
     @Override
     public String toString(){

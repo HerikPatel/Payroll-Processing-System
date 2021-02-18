@@ -7,21 +7,21 @@ import java.util.StringTokenizer;
  */
 public class Date implements Comparable<Date> {
     /**
-     * year of publishing
+     * Year when the employee was hired
      */
     private int year;
     /**
-     * month of publishing
+     * Month when the employee was hired
      */
     private int month;
     /**
-     * day of publishing
+     * Day when the employee was hired
      */
     private int day;
 
     /**
-     * Used to set values for Date object
-     * @param date It is the date entered for book
+     * Constructor Used to set values for Date object
+     * @param date It is the date on which employee was hired
      */
 
     public Date(String date) {
@@ -37,8 +37,7 @@ public class Date implements Comparable<Date> {
     }
 
     /**
-     *
-     * @author Malav Doshi and Herik Patel
+     *Constructor used to instantiate values for date
      */
     public Date() {
         year = Calendar.getInstance().get(Calendar.YEAR);
@@ -48,7 +47,6 @@ public class Date implements Comparable<Date> {
 
     /**
      * Used to get year for a date
-     * @author Malav Doshi and Herik Patel
      * @return Integer value which is year
      */
 
@@ -57,7 +55,6 @@ public class Date implements Comparable<Date> {
     }
     /**
      * Used to get month for a date
-     * @author Malav Doshi and Herik Patel
      * @return Integer value which is month
      */
     public int getMonth(){
@@ -65,7 +62,6 @@ public class Date implements Comparable<Date> {
     }
     /**
      * Used to get day for a date
-     * @author Malav Doshi and Herik Patel
      * @return Integer value which is day
      */
     public int getDay(){
@@ -74,7 +70,6 @@ public class Date implements Comparable<Date> {
 
     /**
      * Checks if the date entered by user is valid or invalid
-     * @author Malav Doshi and Herik Patel
      * @return False if invalid date is entered else True
      */
     public boolean isValid() {
@@ -134,8 +129,7 @@ public class Date implements Comparable<Date> {
 
     /**
      *Used to check if a year is a leap year or not
-     * @author Malav Doshi and Herik Patel
-     * @param y Year
+     * @param y Year which we want to check
      * @return True if given year is leap year else false
      */
     private boolean isLeapYear(int y){
@@ -155,6 +149,12 @@ public class Date implements Comparable<Date> {
         return false;
     }
 
+    /**
+     * This method is used to compare date object and see if the date value is a future value
+     * Used to check hiring date is not in future
+     * @param date Date which we want to compare it with
+     * @return 1 if the date is smaller than today's date else returns -1
+     */
     @Override
     public int compareTo(Date date) {
 

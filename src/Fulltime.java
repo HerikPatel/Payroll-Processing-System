@@ -1,12 +1,15 @@
 public class Fulltime extends Employee{
 
     /**
-     *
+     * Represents salary of the employee
      */
     public double salary;
+    /**
+     * Represents Payment given to employee
+     */
     public double payment = 0;
     /**
-     *
+     *Constructor for class Fulltime
      */
     public Fulltime(){
     }
@@ -27,7 +30,7 @@ public class Fulltime extends Employee{
     }
 
     /**
-     *
+     *This method is used to calculate to payment for salary of the employee
      */
     @Override
     public void calculatePayment() {
@@ -38,7 +41,7 @@ public class Fulltime extends Employee{
     }
 
     /**
-     *
+     * This method is used to compare objects to see if the employee is already present in the database
      * @param obj
      * @return
      */
@@ -52,8 +55,8 @@ public class Fulltime extends Employee{
     }
 
     /**
-     *
-     * @return
+     * This method is used to convert fields such as name, department and date hired to string
+     * @return string value which is fields such as name, department and date hired
      */
     @Override
     public String toString(){
