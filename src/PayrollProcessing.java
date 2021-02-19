@@ -64,7 +64,7 @@ public class PayrollProcessing {
      */
     public void run() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Payroll Processing running.");
+        System.out.println("Payroll Processing started.");
 
         Company company = new Company();
 
@@ -84,7 +84,14 @@ public class PayrollProcessing {
             if(st.hasMoreTokens()){ //Check and Set command
                 command = st.nextToken();
                 if(!checkCommand(st)){
-                    System.out.println("Invalid command!");
+
+                    if (!command.equals("AP") && !command.equals("AF") && !command.equals("AM") && !command.equals("R") && !command.equals("C") && !command.equals("S") && !command.equals("PA") && !command.equals("PH") && !command.equals("PD") && !command.equals("Q")) {
+                        System.out.println("Command '" + command + "' not supported!");
+                    }
+                    else {
+                        System.out.println("Invalid command!");
+                    }
+
                     continue;
                 }
             }
@@ -171,7 +178,7 @@ public class PayrollProcessing {
 
                 Profile profile = new Profile(name, dept, date);
 
-                Management management = new Management(profile, salary, role);
+                Fulltime management = new Management(profile, salary, role);
 
                 if(company.add(management)){
                     System.out.println("Employee added.");
@@ -187,12 +194,17 @@ public class PayrollProcessing {
                     continue;
                 }
                 company.processPayments();
-                System.out.print("Calculation of employee payments done.");
+                System.out.println("Calculation of employee payments done.");
             }
             else if(command.equals("S")){
 
                 if(hours < 0 || hours > 100){
                     System.out.println("Hours cannot be less than 0 and greater than 100");
+                    continue;
+                }
+
+                if(company.getNumEmployee() == 0){
+                    System.out.println("Employee database empty!");
                     continue;
                 }
 
@@ -204,17 +216,40 @@ public class PayrollProcessing {
                 part_emp.setHours(hours); // Set hours
 
                 if(company.setHours(part_emp)){
-                    System.out.println("Working hours set");
+                    System.out.println("Working hours set.");
                 }
                 else{
-                    System.out.println("Employee database empty.");
+                    System.out.println("Employee not found.");
                 }
             }
             else if(command.equals("R")){
-                Profile profile = new Profile(name, dept, date);
-                Parttime parttime = new Parttime(profile, 45.9);
-                company.remove(parttime);
 
+                if(company.getNumEmployee() == 0){
+                    System.out.println("Employee database empty!");
+                    continue;
+                }
+
+                Profile profile = new Profile(name, dept, date);
+                Parttime parttime = new Parttime(profile, hourlyPayRate);
+                company.remove(parttime);
+            }
+            else if(command.equals("PA")){
+
+                if(company.getNumEmployee() == 0){
+                    System.out.println("Employee database empty!");
+                    continue;
+                }
+
+                company.print();
+            }
+            else if(command.equals("PD")){
+
+                if(company.getNumEmployee() == 0){
+                    System.out.println("Employee database empty!");
+                    continue;
+                }
+
+                company.printByDepartment();
             }
 
         }

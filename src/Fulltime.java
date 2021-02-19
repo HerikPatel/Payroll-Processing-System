@@ -1,3 +1,7 @@
+/**
+ * Used to create a Fulltime employee
+ * @author Malav Doshi and Herik Patel
+ */
 public class Fulltime extends Employee{
 
     /**
@@ -15,9 +19,10 @@ public class Fulltime extends Employee{
     }
 
     /**
-     *
-     * @param profile
-     * @param salary
+     *Parameterised constructor of Fulltime class.
+     * @author Malav Doshi and Herik Patel
+     * @param profile Profile of fulltime employee
+     * @param salary Salary of fulltime employee
      */
     public Fulltime(Profile profile, double salary){
 
@@ -25,12 +30,27 @@ public class Fulltime extends Employee{
         this.salary = salary;
     }
 
+    /**
+     * Used to get the salary of a full time employee
+     * @author Malav Doshi and Herik Patel
+     * @return Salary of fulltime employee
+     */
     public double getSalary(){
         return salary;
     }
 
     /**
-     *This method is used to calculate to payment for salary of the employee
+     * Returns the common data of employee
+     * @author Malav Doshi and Herik Patel
+     * @return string from toString() method in Employee class
+     */
+    public String getString(){
+        return super.toString();
+    }
+
+    /**
+     *This method is used to calculate to payment for salary of a full-time employee
+     * @author Malav Doshi and Herik Patel
      */
     @Override
     public void calculatePayment() {
@@ -42,8 +62,9 @@ public class Fulltime extends Employee{
 
     /**
      * This method is used to compare objects to see if the employee is already present in the database
-     * @param obj
-     * @return
+     * @author Malav Doshi and Herik Patel
+     * @param obj Object to be compared
+     * @return True if obj is same as the compared object. False otherwise.
      */
     @Override
     public boolean equals(Object obj){
@@ -55,11 +76,12 @@ public class Fulltime extends Employee{
     }
 
     /**
-     * This method is used to convert fields such as name, department and date hired to string
-     * @return string value which is fields such as name, department and date hired
+     * This method is used to convert fields such as payment and salary to string and other info is obtained from the parent class
+     * @author Malav Doshi and Herik Patel
+     * @return string with all the info about a fulltime employee
      */
     @Override
     public String toString(){
-        return profile.getName() + "::" + profile.getDepartment() + "::" + profile.getDateHired();
+        return super.toString() + "::Payment $" + payment + "::FULL TIME::Annual Salary $"  + salary;
     }
 }

@@ -1,3 +1,7 @@
+/**
+ * Used to crate a profile of an employee
+ * @author Malav Doshi and Herik Patel
+ */
 public class Profile {
     /**
      * Represents Name of the employee

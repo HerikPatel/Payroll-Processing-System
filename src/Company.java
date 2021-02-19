@@ -1,3 +1,7 @@
+/**
+ * This is the database class of all the employees
+ * @author Malav Doshi and Herik Patel
+ */
 public class Company {
 
     /**
@@ -36,6 +40,7 @@ public class Company {
 
     /**
      * This methods is used to increase the size of the array by 4
+     * @author Malav Doshi and Herik Patel
      */
     private void grow() {
 
@@ -51,8 +56,9 @@ public class Company {
 
     /**
      * This method is used to add employee to the array which data for all employees
+     * @author Malav Doshi and Herik Patel
      * @param employee It is of type Employee which has to be added to the array
-     * @return true is employee is added to the array or returns false which means employee is already in the array
+     * @return true if employee is added to the array or returns false which means employee is already in the array
      */
     public boolean add(Employee employee) { //check the profile before adding
 
@@ -88,6 +94,7 @@ public class Company {
 
     /**
      *Removes an Employee from the the array if employee is not in the array it returns false
+     * @author Malav Doshi and Herik Patel
      * @param employee Employee object which has to be removed
      * @return True if employee is removed form the array else returns False
      */
@@ -117,6 +124,7 @@ public class Company {
 
     /**
      * This method is used to set working hours for employee
+     * @author Malav Doshi and Herik Patel
      * @param employee Employee whose hours we need to set
      * @return true after hours are set for employee or returns false if employee is not in the array
      */
@@ -139,7 +147,8 @@ public class Company {
     }
 
     /**
-     *
+     *This is used to calculate the payments for each employee in the database
+     * @author Malav Doshi and Herik Patel
      */
     public void processPayments() { //process payments for all employees
         int i;
@@ -150,23 +159,56 @@ public class Company {
     }
 
     /**
-     *
+     * Prints the database of the employees in its current order
+     * @author Herik Patel anf Malav Doshi
      */
-    public void print() { } //print earning statements for all employees
+    public void print() {
+        System.out.println("--Printing Earning statements for all employees--");
+        int i;
+        for(i = 0; i < numEmployee; i++){
+            System.out.println(emplist[i].toString());
+        }
+    } //print earning statements for all employees
 
     /**
-     *
+     *Prints the earning statement of the employees in the order of their department
+     * @author Malav Doshi and Herik Patel
      */
-    public void printByDepartment() { } //print earning statements by department
+    public void printByDepartment() {
+        int i,j;
+
+        System.out.println("--Printing earning statements by department--");
+
+        for(i = 0; i < numEmployee - 1; i++){
+
+            for(j = i + 1; j < numEmployee; j++){
+
+                if(emplist[i].profile.getDepartment().compareTo(emplist[j].profile.getDepartment()) > 0){
+
+                    Employee temp = emplist[i];
+                    emplist[i] = emplist[j];
+                    emplist[j] = temp;
+
+                }
+            }
+        }
+
+        for(i = 0; i < numEmployee; i++){
+            System.out.println(emplist[i].toString());
+        }
+    } //print earning statements by department
 
     /**
-     *
+     *Prints the earning statement of the employees in the order of their date hired
+     * @author Malav Doshi and Herik Patel
      */
-    public void printByDate() { }
+    public void printByDate() {
+
+    }
 
     /**
-     *
-     * @return
+     * @author Malav Doshi and Herik Patel
+     * @return The number of employees in the database
      */
     public int getNumEmployee(){
         return numEmployee;

@@ -150,10 +150,10 @@ public class Date implements Comparable<Date> {
     }
 
     /**
-     * This method is used to compare date object and see if the date value is a future value
-     * Used to check hiring date is not in future
+     * This method is used to compare dates
+     * @author Malav Doshi and Herik Patel
      * @param date Date which we want to compare it with
-     * @return 1 if the date is smaller than today's date else returns -1
+     * @return 1 if the date is greater than the date we compare to, 0 if both the dates are equal, -1 if date is smaller than the other date
      */
     @Override
     public int compareTo(Date date) {
