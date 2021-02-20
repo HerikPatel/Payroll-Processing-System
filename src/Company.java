@@ -111,6 +111,7 @@ public class Company {
             numEmployee--;
             return true;
         }
+
         for(int i=index;i<numEmployee-1;i++)   // Overwriting the values in the array to remove particular book
         {
             Employee tempEmployee = new Employee();
@@ -203,9 +204,75 @@ public class Company {
      * @author Malav Doshi and Herik Patel
      */
     public void printByDate() {
-
+        emplist=sortedarray();
+        System.out.println("--Printing earning statements by department--");
+        for(int i = 0; i < numEmployee; i++){
+            System.out.println(emplist[i].toString());
+        }
     }
+    /**
+     * Used to sort the Employee array by date
+     * @return Employee array which is sorted by dates
+     */
+    private Employee[] sortedarray() //Returns an sorted array
+    {
+        Employee[] temp = emplist;
+        Employee swap_obj = new Employee();
+        String date1="";
+        String date2="";
+        Employee tempEmployee = new Employee();
 
+        int min_index;
+        for(int i=0;i<numEmployee-1;i++)
+        {
+            min_index=i;
+            for (int j=i+1;j<numEmployee;j++ )
+            {
+                date1 = checkDate(min_index,temp);  // Takes the date and turns it into a string value
+                date2 = checkDate(j,temp);
+                //  date2=""+temp[j].getDatePublished().getYear()+temp[j].getDatePublished().getMonth()+temp[j].getDatePublished().getDay();
+                int int_date1= Integer.parseInt(date1);
+                int int_date2= Integer.parseInt(date2);
+                if(int_date2<int_date1)
+                {
+                    min_index=j;
+                }
+
+            }
+            tempEmployee = temp[min_index];
+            temp[min_index]=temp[i];
+            temp[i]=tempEmployee;
+        }
+
+        return temp;
+    }
+    /**
+     * Used to check date and return it as a String value
+     * @param index Index of the array
+     * @param temp Temporary Employee array
+     * @return String value of date
+     */
+    private String checkDate(int index,Employee[] temp)
+    {
+        String date_to_string = ""+temp[index].profile.getDateHired().getYear();
+        if(temp[index].profile.getDateHired().getMonth()<10)
+        {
+            date_to_string=date_to_string+"0"+temp[index].profile.getDateHired().getMonth();
+        }
+        else
+        {
+            date_to_string=date_to_string+temp[index].profile.getDateHired().getMonth();
+        }
+        if(temp[index].profile.getDateHired().getDay()<10)
+        {
+            date_to_string=date_to_string+"0"+temp[index].profile.getDateHired().getDay();
+        }
+        else
+        {
+            date_to_string=date_to_string+temp[index].profile.getDateHired().getDay();
+        }
+        return date_to_string;
+    }
     /**
      * @author Malav Doshi and Herik Patel
      * @return The number of employees in the database

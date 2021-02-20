@@ -230,8 +230,8 @@ public class PayrollProcessing {
                 }
 
                 Profile profile = new Profile(name, dept, date);
-                Parttime parttime = new Parttime(profile, hourlyPayRate);
-                company.remove(parttime);
+                Employee emp = new Employee(profile);
+                company.remove(emp);
             }
             else if(command.equals("PA")){
 
@@ -250,6 +250,15 @@ public class PayrollProcessing {
                 }
 
                 company.printByDepartment();
+            }
+            else if(command.equals("PH")){
+
+                if(company.getNumEmployee() == 0){
+                    System.out.println("Employee database empty!");
+                    continue;
+                }
+
+                company.printByDate();
             }
 
         }
