@@ -230,8 +230,11 @@ public class PayrollProcessing {
                 }
 
                 Profile profile = new Profile(name, dept, date);
-                Employee emp = new Employee(profile);
-                company.remove(emp);
+                Fulltime management = new Management(profile, 0, 0);
+                Parttime parttime = new Parttime(profile, 0);
+
+                company.remove(management);
+                company.remove(parttime);
             }
             else if(command.equals("PA")){
 
