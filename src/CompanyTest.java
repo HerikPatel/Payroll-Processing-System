@@ -77,10 +77,37 @@ public class CompanyTest {
         parttime = new Parttime(profile, 0);
         assertTrue(company.remove(parttime));
 
+        // Test-Case4 Removing a part-time employee with incorrect order of name
+        date = new Date("2/2/2018");
+        profile = new Profile("Jack,Kapoor", "ECE", date);
+        parttime = new Parttime(profile, 30);
+        company.add(parttime);
+
+        profile = new Profile("Kapoor,Jack", "ECE", date);
+        parttime = new Parttime(profile, 0);
+        assertFalse(company.remove(parttime));
+
     }
 
     @Test
     public void setHours() {
-        
+        // Test-Case1 Setting hours for part time employee
+        Company company = new Company();
+        Date date = new Date("12/12/2012");
+        Profile profile = new Profile("Bob,Jack", "CS", date);
+        Parttime parttime = new Parttime(profile, 30);
+        company.add(parttime);
+        Parttime part_emp = new Parttime();
+        part_emp.profile = profile;
+        part_emp.setHours(40);
+        assertTrue(company.setHours(part_emp));
+
+        // Test-Case2 Setting hours for part time employee not in the array false value will be returned
+        date = new Date("2/1/2015");
+        profile = new Profile("Johnson,Nova", "CS", date);
+        part_emp = new Parttime();
+        part_emp.profile = profile;
+        part_emp.setHours(40);
+        assertFalse(company.setHours(part_emp));
     }
 }
