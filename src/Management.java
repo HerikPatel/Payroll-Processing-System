@@ -57,24 +57,24 @@ public class Management extends Fulltime{
     @Override
     public void calculatePayment() {
 
-        double manager_comp = 5000.0, deptHead_comp = 9500.0, director_comp = 12000.0;
+        double managerComp = 5000.0, deptHeadComp = 9500.0, directorComp = 12000.0;
         double salary = super.getSalary();
-        int pay_periods = 26;
+        int payPeriods = 26;
         double hundred = 100.0;
 
-        payment = salary / pay_periods;
+        payment = salary / payPeriods;
         payment = Math.round(payment * hundred) / hundred; //Round off to two decimal places
 
         if(role == 1){
-            compensation = roundOff(manager_comp / 26);
+            compensation = roundOff(managerComp / 26);
             payment += compensation;
         }
         else if(role == 2){
-            compensation = roundOff(deptHead_comp / 26);
+            compensation = roundOff(deptHeadComp / 26);
             payment += compensation;
         }
         else{
-            compensation = roundOff(director_comp / 26);
+            compensation = roundOff(directorComp / 26);
             payment += compensation;
         }
     }

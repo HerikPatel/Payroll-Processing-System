@@ -62,11 +62,10 @@ public class PayrollProcessing {
 
     /**
      * Used to run the Payroll processing system by taking in different commands and executing them
-     * @author Malav Doshi and Herik Patel
      */
     public void run() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Payroll Processing started.");
+        System.out.println("Payroll Processing starts.");
 
         Company company = new Company();
 
@@ -149,7 +148,7 @@ public class PayrollProcessing {
                 if(command.equals("AM")){
                     role = Integer.parseInt(st.nextToken());
                     if(role < 0 || role > 3){
-                        System.out.println("Invalid role!");
+                        System.out.println("Invalid management code.");
                         continue;
                     }
                 }
@@ -159,9 +158,9 @@ public class PayrollProcessing {
 
                 Profile profile = new Profile(name, dept, date);
 
-                Fulltime fulltime = new Fulltime(profile, salary);
+                Fulltime fullTime = new Fulltime(profile, salary);
 
-                if(company.add(fulltime)){
+                if(company.add(fullTime)){
                     System.out.println("Employee added.");
                 }
                 else{
@@ -172,9 +171,9 @@ public class PayrollProcessing {
 
                 Profile profile = new Profile(name, dept, date);
 
-                Parttime parttime = new Parttime(profile, hourlyPayRate);
+                Parttime partTime = new Parttime(profile, hourlyPayRate);
 
-                if(company.add(parttime)){
+                if(company.add(partTime)){
                     System.out.println("Employee added.");
                 }
                 else{
@@ -222,12 +221,12 @@ public class PayrollProcessing {
 
                 Profile profile = new Profile(name, dept, date);
 
-                Parttime part_emp = new Parttime();
+                Parttime partEmp = new Parttime();
 
-                part_emp.profile = profile; //Set profile
-                part_emp.setHours(hours); // Set hours
+                partEmp.profile = profile; //Set profile
+                partEmp.setHours(hours); // Set hours
 
-                if(company.setHours(part_emp)){
+                if(company.setHours(partEmp)){
                     System.out.println("Working hours set.");
                 }
                 else{
@@ -243,10 +242,10 @@ public class PayrollProcessing {
 
                 Profile profile = new Profile(name, dept, date);
                 Fulltime management = new Management(profile, 0, 0);
-                Parttime parttime = new Parttime(profile, 0);
+                Parttime partTime = new Parttime(profile, 0);
 
                 if(!company.remove(management)){
-                    company.remove(parttime);
+                    company.remove(partTime);
                 }
                 else{
                     company.remove(management);
@@ -293,20 +292,20 @@ public class PayrollProcessing {
      */
     public boolean checkCommand(StringTokenizer st) {
 
-        int tokens_left_Add = 4;
-        int tokens_left_AM = 5;
-        int tokens_left_R = 3;
-        int tokens_left_S = 4;
+        int tokensLeftAdd = 4;
+        int tokensLeftAM = 5;
+        int tokensLeftR = 3;
+        int tokensLeftS = 4;
 
         if (command.equals("AP") || command.equals("AF") || command.equals("AM") || command.equals("R") || command.equals("C") || command.equals("S") || command.equals("PA") || command.equals("PH") || command.equals("PD") || command.equals("Q")) {
 
-            if ((command.equals("AP") || command.equals("AF")) && st.countTokens() != tokens_left_Add) {
+            if ((command.equals("AP") || command.equals("AF")) && st.countTokens() != tokensLeftAdd) {
                     return false;
-            } else if (command.equals("AM") && st.countTokens() != tokens_left_AM) {
+            } else if (command.equals("AM") && st.countTokens() != tokensLeftAM) {
                 return false;
-            } else if (command.equals("R") && st.countTokens() != tokens_left_R) {
+            } else if (command.equals("R") && st.countTokens() != tokensLeftR) {
                 return false;
-            } else if (command.equals("S") && st.countTokens() != tokens_left_S) {
+            } else if (command.equals("S") && st.countTokens() != tokensLeftS) {
                 return false;
             } else return (!command.equals("PA") && !command.equals("PH") && !command.equals("PD")) || st.countTokens() == 0;
         }
@@ -323,7 +322,6 @@ public class PayrollProcessing {
 
     /**
      * Used to check if the name is in valid format
-     * @author Malav Doshi and Herik Patel
      * @return True if valid name format. False otherwise.
      */
     public boolean checkName(){

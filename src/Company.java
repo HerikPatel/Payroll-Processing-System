@@ -13,12 +13,16 @@ public class Company {
      * Integer value to keep track length of emplist
      */
     private int numEmployee;
+    /**
+     * Used to increase array size by 4
+     */
+    private static final int increaseSize = 4;
 
     /**
      * Constructor which is used to instantiate emplist array which stores Employee data
      */
     public Company(){
-        emplist = new Employee[4];
+        emplist = new Employee[increaseSize];
         numEmployee = 0;
     }
 
@@ -43,7 +47,7 @@ public class Company {
      */
     private void grow() {
 
-        Employee[] temp = new Employee[emplist.length + 4]; //Declare and initialize a temp array of length +4 than original one
+        Employee[] temp = new Employee[emplist.length + increaseSize]; //Declare and initialize a temp array of length +4 than original one
         int i;
 
         for(i=0;i < emplist.length;i++){
@@ -150,7 +154,6 @@ public class Company {
 
     /**
      * Prints the database of the employees in its current order
-     * @author Herik Patel anf Malav Doshi
      */
     public void print() {
         System.out.println("--Printing Earning statements for all employees--");
@@ -162,7 +165,6 @@ public class Company {
 
     /**
      *Prints the earning statement of the employees in the order of their department
-     * @author Malav Doshi and Herik Patel
      */
     public void printByDepartment() {
         int i,j;
@@ -190,10 +192,9 @@ public class Company {
 
     /**
      *Prints the earning statement of the employees in the order of their date hired
-     * @author Malav Doshi and Herik Patel
      */
     public void printByDate() {
-        emplist=sortedarray();
+        emplist= sortedArray();
         System.out.println("--Printing earning statements by date hired--");
         for(int i = 0; i < numEmployee; i++){
             System.out.println(emplist[i].toString());
@@ -203,10 +204,9 @@ public class Company {
      * Used to sort the Employee array by date
      * @return Employee array which is sorted by dates
      */
-    private Employee[] sortedarray() //Returns an sorted array
+    private Employee[] sortedArray() //Returns an sorted array
     {
         Employee[] temp = emplist;
-        Employee swap_obj = new Employee();
         String date1= "";
         String date2= "";
         Employee tempEmployee = new Employee();
@@ -243,27 +243,26 @@ public class Company {
      */
     private String checkDate(int index,Employee[] temp)
     {
-        String date_to_string = "" + temp[index].profile.getDateHired().getYear();
+        String dateToString = "" + temp[index].profile.getDateHired().getYear();
         if(temp[index].profile.getDateHired().getMonth()<10)
         {
-            date_to_string = date_to_string + "0" + temp[index].profile.getDateHired().getMonth();
+            dateToString = dateToString + "0" + temp[index].profile.getDateHired().getMonth();
         }
         else
         {
-            date_to_string = date_to_string + temp[index].profile.getDateHired().getMonth();
+            dateToString = dateToString + temp[index].profile.getDateHired().getMonth();
         }
         if(temp[index].profile.getDateHired().getDay()<10)
         {
-            date_to_string = date_to_string+ "0" + temp[index].profile.getDateHired().getDay();
+            dateToString = dateToString+ "0" + temp[index].profile.getDateHired().getDay();
         }
         else
         {
-            date_to_string = date_to_string + temp[index].profile.getDateHired().getDay();
+            dateToString = dateToString + temp[index].profile.getDateHired().getDay();
         }
-        return date_to_string;
+        return dateToString;
     }
     /**
-     * @author Malav Doshi and Herik Patel
      * @return The number of employees in the database
      */
     public int getNumEmployee(){

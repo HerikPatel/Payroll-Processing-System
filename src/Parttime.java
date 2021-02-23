@@ -19,7 +19,7 @@ public class Parttime extends Employee{
     /**
      * Represents how many extra hours an employee worked
      */
-    private int extra_hours;
+    private int extraHours;
     /**
      * Constructor for the class Parttime
      */
@@ -56,14 +56,14 @@ public class Parttime extends Employee{
     @Override
     public void calculatePayment() {
 
-        double extra_payment;
-        int max_hours = 80;
-        double extra_rate = 1.5;
+        double extraPayment;
+        int maxHours = 80;
+        double extraRate = 1.5;
 
-        if(hours > max_hours){ //Extra hours to be paid 1.5x hourly rate
-            extra_hours = hours - max_hours;
-            extra_payment = extra_hours * extra_rate * hourlyPayRate;
-            payment += extra_payment;
+        if(hours > maxHours){ //Extra hours to be paid 1.5x hourly rate
+            extraHours = hours - maxHours;
+            extraPayment = extraHours * extraRate * hourlyPayRate;
+            payment += extraPayment;
             return;
         }
 
