@@ -1,0 +1,171 @@
+@startuml
+
+title __Payroll processing system Class Diagram__\n
+
+
+    class Company {
+        - emplist : Employee[]
+        {static} - increaseSize : int
+        - numEmployee : int
+        + Company()
+        + add()
+        + getNumEmployee()
+        + print()
+        + printByDate()
+        + printByDepartment()
+        + processPayments()
+        + remove()
+        + setHours()
+        - checkDate()
+        - find()
+        - grow()
+        - sortedArray()
+    }
+
+
+
+
+
+
+
+
+
+    class Date {
+        - day : int
+        - month : int
+        - year : int
+        + Date()
+        + Date()
+        + compareTo()
+        + getDay()
+        + getMonth()
+        + getYear()
+        + isValid()
+        - isLeapYear()
+    }
+
+
+
+
+    class Employee {
+        + Employee()
+        + Employee()
+        + calculatePayment()
+        + equals()
+        + getPayment()
+        + toString()
+    }
+
+
+
+
+    class Fulltime {
+        + payment : double
+        + salary : double
+        + Fulltime()
+        + Fulltime()
+        + calculatePayment()
+        + equals()
+        + getPayment()
+        + getSalary()
+        + getString()
+        + toString()
+    }
+
+
+
+
+    class Management {
+        - compensation : double
+        - deptHead_comp : double
+        - director_comp : double
+        - manager_comp : double
+        - payment : double
+        - role : int
+        + Management()
+        + Management()
+        + calculatePayment()
+        + equals()
+        + getPayment()
+        + roundOff()
+        + toString()
+    }
+
+
+
+
+
+
+
+
+
+    class Parttime {
+        - extraHours : int
+        - hourlyPayRate : double
+        - hours : int
+        - payment : double
+        + Parttime()
+        + Parttime()
+        + calculatePayment()
+        + equals()
+        + getHours()
+        + setHours()
+        + toString()
+    }
+
+
+
+
+    class PayrollProcessing {
+        + command : String
+        + dateIn : String
+        + dept : String
+        + hourlyPayRate : double
+        + hours : int
+        + input : String
+        + name : String
+        + role : int
+        + salary : double
+        + checkCommand()
+        + checkDept()
+        + checkName()
+        + run()
+    }
+
+
+
+
+    class Profile {
+        - department : String
+        - name : String
+        + Profile()
+        + equals()
+        + getDateHired()
+        + getDepartment()
+        + getName()
+        + setDateHired()
+        + setDepartment()
+        + setName()
+        + toString()
+    }
+
+
+
+    class RunProject2 {
+        {static} + main()
+    }
+
+
+
+
+  Employee o-- Profile : profile
+  Fulltime -up-|> Employee
+  Management -up-|> Fulltime
+  Parttime -up-|> Employee
+  PayrollProcessing o-- Date : date
+  Profile o-- Date : dateHired
+
+
+
+
+@enduml
