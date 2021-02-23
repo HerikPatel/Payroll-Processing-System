@@ -26,6 +26,7 @@ public class Employee {
 
     /**
      *This method is overridden in child classes
+     * @return Returns payment
      */
     public double getPayment(){
         return 0.0;
@@ -69,6 +70,7 @@ public class Employee {
      */
     @Override
     public String toString(){
-        return profile.getName() + "::" + profile.getDepartment() + "::" + profile.getDateHired().getMonth() + "/" + profile.getDateHired().getDay() + "/" + profile.getDateHired().getYear();
+        //return profile.getName() + "::" + profile.getDepartment() + "::" + profile.getDateHired().getMonth() + "/" + profile.getDateHired().getDay() + "/" + profile.getDateHired().getYear();
+        return profile.toString();
     }
 }

@@ -6,7 +6,7 @@ public class CompanyTest {
 
     @Test
     public void add() {
-        // Test-Case1 Adding a full-time employee with the role “Director”
+        // Test-Case1 Adding a full-time employee with the role Director
         Company company = new Company();
         Date date = new Date("12/12/2012");
         Profile profile = new Profile("Bob,Jack", "CS", date);
@@ -25,13 +25,13 @@ public class CompanyTest {
         management = new Management(profile, 50000.0, 3);
         assertFalse(company.add(management));
 
-        // Test-Case4 Adding a full-time employee with the role “Department Head”
+        // Test-Case4 Adding a full-time employee with the role Department Head
         date = new Date("1/1/2013");
         profile = new Profile("Kathy,James", "IT", date);
         management = new Management(profile, 45000.0, 2);
         assertTrue(company.add(management));
 
-        // Test-Case5 Adding a full-time employee with the role “Manager”
+        // Test-Case5 Adding a full-time employee with the role Manager
         date = new Date("1/1/2013");
         profile = new Profile("Dwight,Schrute", "ECE", date);
         management = new Management(profile, 45000.0, 1);
@@ -109,5 +109,15 @@ public class CompanyTest {
         part_emp.profile = profile;
         part_emp.setHours(40);
         assertFalse(company.setHours(part_emp));
+
+        // Test-Case3 Setting hours for part time employee greater than 80
+
+        date = new Date("2/3/2016");
+        profile = new Profile("Johnson,Sam", "IT", date);
+        part_emp = new Parttime();
+        part_emp.profile = profile;
+        part_emp.setHours(95);
+        company.add(part_emp);
+        assertTrue(company.setHours(part_emp));
     }
 }

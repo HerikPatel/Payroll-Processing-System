@@ -28,6 +28,8 @@ public class Parttime extends Employee{
 
     /**
      * Constructor for the class Parttime used to instantiate values
+     * @param profile Profile of an employee
+     * @param hourlyPayRate Hourly pay rate of a part time employee
      */
     public Parttime(Profile profile, double hourlyPayRate){
         super(profile);
@@ -61,13 +63,16 @@ public class Parttime extends Employee{
         double extraRate = 1.5;
 
         if(hours > maxHours){ //Extra hours to be paid 1.5x hourly rate
-            extraHours = hours - maxHours;
+            payment = maxHours * hourlyPayRate;
+            extraHours = this.hours - maxHours;
             extraPayment = extraHours * extraRate * hourlyPayRate;
             payment += extraPayment;
+            payment = Math.round(payment * 100.0) / 100.0;
             return;
         }
 
-        payment = hours * hourlyPayRate;
+        payment = this.hours * hourlyPayRate;
+        payment = Math.round(payment * 100.0) / 100.0;
     }
 
 
@@ -92,6 +97,6 @@ public class Parttime extends Employee{
      */
     @Override
     public String toString(){
-        return super.toString() + "::Payment $" + payment + "::PART TIME:: Hourly Rate $" + hourlyPayRate + "::Hours worked this period: " + hours;
+        return super.toString() + "::Payment $" + payment + "::PART TIME:: Hourly Rate $" + hourlyPayRate + "::Hours worked this period: " + this.hours;
     }
 }

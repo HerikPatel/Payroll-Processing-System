@@ -17,6 +17,21 @@ public class Management extends Fulltime{
     private double compensation;
 
     /**
+     * Represents manager's compensation
+     */
+    private double manager_comp = 5000.0;
+
+    /**
+     * Represents Department Head compensation
+     */
+    private double deptHead_comp = 9500.0;
+
+    /**
+     * Represents Director's compensation
+     */
+    private double director_comp = 12000.0;
+
+    /**
      *Constructor for the class Management
      */
     public Management(){
@@ -31,6 +46,16 @@ public class Management extends Fulltime{
     public Management(Profile profile, double salary, int role) {
         super(profile, salary);
         this.role = role;
+
+        if(role == 1){
+            compensation = roundOff(manager_comp / 26);
+        }
+        else if(role == 2){
+            compensation = roundOff(deptHead_comp / 26);
+        }
+        else{
+            compensation = roundOff(director_comp / 26);
+        }
     }
 
     /**
@@ -57,26 +82,14 @@ public class Management extends Fulltime{
     @Override
     public void calculatePayment() {
 
-        double managerComp = 5000.0, deptHeadComp = 9500.0, directorComp = 12000.0;
+
         double salary = super.getSalary();
-        int payPeriods = 26;
+        int pay_periods = 26;
         double hundred = 100.0;
 
-        payment = salary / payPeriods;
+        payment = salary / pay_periods;
         payment = Math.round(payment * hundred) / hundred; //Round off to two decimal places
-
-        if(role == 1){
-            compensation = roundOff(managerComp / 26);
-            payment += compensation;
-        }
-        else if(role == 2){
-            compensation = roundOff(deptHeadComp / 26);
-            payment += compensation;
-        }
-        else{
-            compensation = roundOff(directorComp / 26);
-            payment += compensation;
-        }
+        payment += compensation;
     }
 
 
