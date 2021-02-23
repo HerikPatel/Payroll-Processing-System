@@ -28,7 +28,14 @@ public class Employee {
     /**
      *This method is overridden in child classes
      */
+    public double getPayment(){
+        return 0.0;
+    }
+    /**
+     *This method is overridden in child classes
+     */
     public void calculatePayment() { }
+
 
 
     /**

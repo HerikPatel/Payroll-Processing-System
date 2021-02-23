@@ -40,6 +40,14 @@ public class Fulltime extends Employee{
     }
 
     /**
+     * Used to return payment for the Employee
+     * @return returns payment that needs to be paid to the Employee
+     */
+    @Override
+    public double getPayment(){
+        return this.payment;
+    }
+    /**
      * Returns the common data of employee
      * @author Malav Doshi and Herik Patel
      * @return string from toString() method in Employee class

@@ -43,6 +43,15 @@ public class Management extends Fulltime{
     }
 
     /**
+     * Used to return payment for the Employee
+     * @return returns payment that needs to be paid to the Employee
+     */
+    @Override
+    public double getPayment(){
+        return this.payment;
+    }
+
+    /**
      * This method is used to calculate compensation for employee
      */
     @Override
