@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="338.8643496654861" y="1040.0">Company</node>
+    <node x="187.6143496654861" y="768.5">Fulltime</node>
+    <node x="339.5" y="518.0">Employee</node>
+    <node x="174.23403679653686" y="1463.0">PayrollProcessing</node>
+    <node x="68.5" y="1095.0">Management</node>
+    <node x="488.86434966548603" y="757.0">Parttime</node>
+    <node x="215.75" y="282.0">Profile</node>
+    <node x="121.61434966548606" y="0.0">Date</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="PayrollProcessing" target="Management">
+      <point x="-24.727272727272748" y="-170.5" />
+      <point x="285.50676406926414" y="1403.0" />
+      <point x="182.5" y="1403.0" />
+      <point x="0.0" y="116.5" />
+    </edge>
+    <edge source="Parttime" target="Profile">
+      <point x="61.0" y="-116.5" />
+      <point x="641.3643496654861" y="737.0" />
+      <point x="594.8410812672176" y="737.0" />
+      <point x="594.8410812672176" y="468.0" />
+      <point x="397.625" y="468.0" />
+      <point x="84.87499999999999" y="83.0" />
+    </edge>
+    <edge source="PayrollProcessing" target="Fulltime">
+      <point x="0.0" y="-170.5" />
+      <point x="310.2340367965369" y="1443.0" />
+      <point x="307.0" y="1443.0" />
+      <point x="307.0" y="1015.0" />
+      <point x="300.1143496654861" y="1015.0" />
+      <point x="22.499999999999993" y="105.0" />
+    </edge>
+    <edge source="PayrollProcessing" target="Company">
+      <point x="49.45454545454544" y="-170.5" />
+      <point x="359.68858225108227" y="1413.0" />
+      <point x="395.8643496654861" y="1413.0" />
+      <point x="-57.0" y="171.5" />
+    </edge>
+    <edge source="Employee" target="Profile">
+      <point x="-59.0" y="-94.5" />
+      <point x="369.0" y="498.0" />
+      <point x="324.875" y="498.0" />
+      <point x="12.125" y="83.0" />
+    </edge>
+    <edge source="Company" target="Employee">
+      <point x="28.5" y="-171.5" />
+      <point x="481.3643496654861" y="1015.0" />
+      <point x="450.7696526957891" y="1015.0" />
+      <point x="450.7696526957891" y="737.0" />
+      <point x="453.2857142857143" y="737.0" />
+      <point x="25.285714285714278" y="94.5" />
+    </edge>
+    <edge source="Fulltime" target="Profile">
+      <point x="-60.0" y="-105.0" />
+      <point x="217.6143496654861" y="737.0" />
+      <point x="224.5" y="737.0" />
+      <point x="224.5" y="498.0" />
+      <point x="300.625" y="498.0" />
+      <point x="-12.125" y="83.0" />
+    </edge>
+    <edge source="Management" target="Profile">
+      <point x="-75.99999999999994" y="-116.5" />
+      <point x="106.50000000000006" y="1015.0" />
+      <point x="111.21438410074785" y="1015.0" />
+      <point x="111.21438410074785" y="488.0" />
+      <point x="276.375" y="488.0" />
+      <point x="-36.375" y="83.0" />
+    </edge>
+    <edge source="Fulltime" target="Employee">
+      <point x="0.0" y="-105.0" />
+      <point x="277.6143496654861" y="727.0" />
+      <point x="352.1428571428571" y="727.0" />
+      <point x="-75.85714285714286" y="94.5" />
+    </edge>
+    <edge source="Parttime" target="Employee">
+      <point x="0.0" y="-116.5" />
+      <point x="580.3643496654861" y="727.0" />
+      <point x="503.85714285714283" y="727.0" />
+      <point x="75.85714285714283" y="94.5" />
+    </edge>
+    <edge source="PayrollProcessing" target="Date">
+      <point x="-98.90909090909088" y="-170.5" />
+      <point x="211.32494588744598" y="1433.0" />
+      <point x="36.0" y="1433.0" />
+      <point x="36.0" y="262.0" />
+      <point x="187.23934966548606" y="262.0" />
+      <point x="-21.875" y="116.0" />
+    </edge>
+    <edge source="Company" target="Parttime">
+      <point x="85.5" y="-171.5" />
+      <point x="538.3643496654861" y="1015.0" />
+      <point x="519.3643496654861" y="1015.0" />
+      <point x="-61.0" y="116.5" />
+    </edge>
+    <edge source="PayrollProcessing" target="Parttime">
+      <point x="98.90909090909088" y="-170.5" />
+      <point x="409.14312770562776" y="1433.0" />
+      <point x="598.2340367965369" y="1433.0" />
+      <point x="598.2340367965369" y="1015.0" />
+      <point x="580.3643496654861" y="1015.0" />
+      <point x="0.0" y="116.5" />
+    </edge>
+    <edge source="Profile" target="Date">
+      <point x="-48.5" y="-83.0" />
+      <point x="264.25" y="262.0" />
+      <point x="230.98934966548606" y="262.0" />
+      <point x="21.875" y="116.0" />
+    </edge>
+    <edge source="Management" target="Fulltime">
+      <point x="76.00000000000006" y="-116.5" />
+      <point x="258.50000000000006" y="1015.0" />
+      <point x="255.1143496654861" y="1015.0" />
+      <point x="-22.5" y="105.0" />
+    </edge>
+    <edge source="PayrollProcessing" target="Profile">
+      <point x="-49.45454545454544" y="-170.5" />
+      <point x="260.7794913419914" y="1413.0" />
+      <point x="58.0" y="1413.0" />
+      <point x="58.0" y="478.0" />
+      <point x="252.125" y="478.0" />
+      <point x="-60.625" y="83.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="498.50000000000006" y="649.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
