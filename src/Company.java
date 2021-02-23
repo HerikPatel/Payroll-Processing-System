@@ -40,7 +40,6 @@ public class Company {
 
     /**
      * This methods is used to increase the size of the array by 4
-     * @author Malav Doshi and Herik Patel
      */
     private void grow() {
 
@@ -56,18 +55,11 @@ public class Company {
 
     /**
      * This method is used to add employee to the array which data for all employees
-     * @author Malav Doshi and Herik Patel
      * @param employee It is of type Employee which has to be added to the array
      * @return true if employee is added to the array or returns false which means employee is already in the array
      */
     public boolean add(Employee employee) { //check the profile before adding
 
-//        Fulltime fObj = new Fulltime();
-//        if(fObj.equals(emplist[numEmployee])){
-//            System.out.println("A FT");
-//        }
-//        Fulltime f = (Fulltime) emplist[numEmployee];
-//        System.out.println(f.salary);
 
         if(numEmployee == 0){
             emplist[0] = employee;
@@ -94,7 +86,6 @@ public class Company {
 
     /**
      *Removes an Employee from the the array if employee is not in the array it returns false
-     * @author Malav Doshi and Herik Patel
      * @param employee Employee object which has to be removed
      * @return True if employee is removed form the array else returns False
      */
@@ -125,7 +116,6 @@ public class Company {
 
     /**
      * This method is used to set working hours for employee
-     * @author Malav Doshi and Herik Patel
      * @param employee Employee whose hours we need to set
      * @return true after hours are set for employee or returns false if employee is not in the array
      */
@@ -149,7 +139,6 @@ public class Company {
 
     /**
      *This is used to calculate the payments for each employee in the database
-     * @author Malav Doshi and Herik Patel
      */
     public void processPayments() { //process payments for all employees
         int i;
@@ -205,7 +194,7 @@ public class Company {
      */
     public void printByDate() {
         emplist=sortedarray();
-        System.out.println("--Printing earning statements by department--");
+        System.out.println("--Printing earning statements by date hired--");
         for(int i = 0; i < numEmployee; i++){
             System.out.println(emplist[i].toString());
         }

@@ -28,7 +28,6 @@ public class Parttime extends Employee{
 
     /**
      * Constructor for the class Parttime used to instantiate values
-     * @author Malav Doshi and Herik Patel
      */
     public Parttime(Profile profile, double hourlyPayRate){
         super(profile);
@@ -37,7 +36,6 @@ public class Parttime extends Employee{
 
     /**
      * This method is used to set hours for part time employee
-     * @author Malav Doshi and Herik Patel
      * @param hours time which we want to set for an employee
      */
     public void setHours(int hours){
@@ -46,7 +44,6 @@ public class Parttime extends Employee{
 
     /**
      * This method is used to get number of hours an employee worked
-     * @author Malav Doshi and Herik Patel
      * @return number of hours of an employee
      */
     public int getHours(){
@@ -55,7 +52,6 @@ public class Parttime extends Employee{
 
     /**
      * This method is used to calculate payment for the part-time employee
-     * @author Malav Doshi and Herik Patel
      */
     @Override
     public void calculatePayment() {
@@ -77,7 +73,6 @@ public class Parttime extends Employee{
 
     /**
      * This method is used to compare objects to see if the employee is already present in the database
-     * @author Malav Doshi and Herik Patel
      * @param obj Object to be compared
      * @return True if obj is same as the compared object. False otherwise.
      */
@@ -93,7 +88,6 @@ public class Parttime extends Employee{
 
     /**
      * This method is used to convert fields such as payment and hourly rate to string and other info is obtained from the parent class
-     * @author Malav Doshi and Herik Patel
      * @return string with all the info of a parttime employee
      */
     @Override

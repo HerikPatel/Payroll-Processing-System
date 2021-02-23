@@ -151,7 +151,6 @@ public class Date implements Comparable<Date> {
 
     /**
      * This method is used to compare dates
-     * @author Malav Doshi and Herik Patel
      * @param date Date which we want to compare it with
      * @return 1 if the date is greater than the date we compare to, 0 if both the dates are equal, -1 if date is smaller than the other date
      */

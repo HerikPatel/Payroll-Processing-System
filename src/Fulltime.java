@@ -20,7 +20,6 @@ public class Fulltime extends Employee{
 
     /**
      *Parameterised constructor of Fulltime class.
-     * @author Malav Doshi and Herik Patel
      * @param profile Profile of fulltime employee
      * @param salary Salary of fulltime employee
      */
@@ -32,7 +31,6 @@ public class Fulltime extends Employee{
 
     /**
      * Used to get the salary of a full time employee
-     * @author Malav Doshi and Herik Patel
      * @return Salary of fulltime employee
      */
     public double getSalary(){
@@ -49,7 +47,6 @@ public class Fulltime extends Employee{
     }
     /**
      * Returns the common data of employee
-     * @author Malav Doshi and Herik Patel
      * @return string from toString() method in Employee class
      */
     public String getString(){
@@ -58,7 +55,6 @@ public class Fulltime extends Employee{
 
     /**
      *This method is used to calculate to payment for salary of a full-time employee
-     * @author Malav Doshi and Herik Patel
      */
     @Override
     public void calculatePayment() {
@@ -70,7 +66,6 @@ public class Fulltime extends Employee{
 
     /**
      * This method is used to compare objects to see if the employee is already present in the database
-     * @author Malav Doshi and Herik Patel
      * @param obj Object to be compared
      * @return True if obj is same as the compared object. False otherwise.
      */
@@ -85,7 +80,6 @@ public class Fulltime extends Employee{
 
     /**
      * This method is used to convert fields such as payment and salary to string and other info is obtained from the parent class
-     * @author Malav Doshi and Herik Patel
      * @return string with all the info about a fulltime employee
      */
     @Override

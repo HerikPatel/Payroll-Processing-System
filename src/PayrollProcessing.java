@@ -81,6 +81,11 @@ public class PayrollProcessing {
             }
             StringTokenizer st = new StringTokenizer(input," ",false);
 
+            if(st.countTokens() == 0){
+                System.out.println("Invalid command!");
+                continue;
+            }
+
             if(st.hasMoreTokens()){ //Check and Set command
                 command = st.nextToken();
                 if(!checkCommand(st)){
@@ -105,7 +110,7 @@ public class PayrollProcessing {
             if(st.hasMoreTokens()){ //Check and Set Department
                 dept = st.nextToken();
                 if(!checkDept()){
-                    System.out.println("Invalid department!");
+                    System.out.println("'" + dept + "' is not a valid department code!");
                     continue;
                 }
             }
@@ -131,6 +136,11 @@ public class PayrollProcessing {
                     case "AF", "AM" -> salary = Double.parseDouble(st.nextToken()); //Set annual salary for full time
 
                     case "S" -> hours = Integer.parseInt(st.nextToken()); // Set hours for part-time employee
+                }
+
+                if(hours < 0 || hourlyPayRate < 0 || salary < 0){
+                    System.out.println("Hours or Salary or Hourly pay rate cannot be negative!");
+                    continue;
                 }
             }
             if(st.hasMoreTokens()){
@@ -233,8 +243,15 @@ public class PayrollProcessing {
                 Fulltime management = new Management(profile, 0, 0);
                 Parttime parttime = new Parttime(profile, 0);
 
-                company.remove(management);
-                company.remove(parttime);
+                if(!company.remove(management)){
+                    company.remove(parttime);
+                }
+                else{
+                    company.remove(management);
+                }
+
+                System.out.println("Employee removed.");
+
             }
             else if(command.equals("PA")){
 

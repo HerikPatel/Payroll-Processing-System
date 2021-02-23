@@ -18,7 +18,6 @@ public class Employee {
 
     /**
      *Constructor for class Employee used to instantiate values
-     * @author Malav Doshi and Herik Patel
      * @param profileIn Profile which we want to assign the object to
      */
     public Employee(Profile profileIn){
@@ -40,7 +39,6 @@ public class Employee {
 
     /**
      * This method is used to check that we are not entering a employee multiple times
-     * @author Malav Doshi and Herik Patel
      * @param obj Object which we want to compare to.
      * @return true if employee already exist else return false
      */
@@ -67,7 +65,6 @@ public class Employee {
 
     /**
      * Used to convert fields like name, department, date hired to string
-     * @author Malav Doshi and Herik Patel
      * @return String value of fields like name,department and date hired
      */
     @Override
