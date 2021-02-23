@@ -29,7 +29,7 @@ public class Company {
      */
     private int find(Employee employee) {
         int i;
-        for(i=0;i<numEmployee;i++){
+        for(i = 0; i < numEmployee; i++){
             if(emplist[i].equals(employee)){
                 return i;
             }
@@ -98,16 +98,16 @@ public class Company {
         if(index == NOT_FOUND){
             return false;
         }
-        if (index==numEmployee-1) {
+        if (index == numEmployee-1) {
             numEmployee--;
             return true;
         }
 
-        for(int i=index;i<numEmployee-1;i++)   // Overwriting the values in the array to remove particular book
+        for(int i = index; i < numEmployee-1; i++)   // Overwriting the values in the array to remove particular book
         {
             Employee tempEmployee = new Employee();
-            tempEmployee=emplist[i+1];
-            emplist[i]=tempEmployee;
+            tempEmployee = emplist[i+1];
+            emplist[i] = tempEmployee;
         }
         numEmployee--;
 
@@ -207,30 +207,30 @@ public class Company {
     {
         Employee[] temp = emplist;
         Employee swap_obj = new Employee();
-        String date1="";
-        String date2="";
+        String date1= "";
+        String date2= "";
         Employee tempEmployee = new Employee();
 
         int min_index;
         for(int i=0;i<numEmployee-1;i++)
         {
-            min_index=i;
-            for (int j=i+1;j<numEmployee;j++ )
+            min_index = i;
+            for (int j = i + 1; j < numEmployee; j++ )
             {
                 date1 = checkDate(min_index,temp);  // Takes the date and turns it into a string value
                 date2 = checkDate(j,temp);
                 //  date2=""+temp[j].getDatePublished().getYear()+temp[j].getDatePublished().getMonth()+temp[j].getDatePublished().getDay();
-                int int_date1= Integer.parseInt(date1);
-                int int_date2= Integer.parseInt(date2);
-                if(int_date2<int_date1)
+                int int_date1 = Integer.parseInt(date1);
+                int int_date2 = Integer.parseInt(date2);
+                if(int_date2 < int_date1)
                 {
-                    min_index=j;
+                    min_index = j;
                 }
 
             }
             tempEmployee = temp[min_index];
-            temp[min_index]=temp[i];
-            temp[i]=tempEmployee;
+            temp[min_index] = temp[i];
+            temp[i] = tempEmployee;
         }
 
         return temp;
@@ -243,22 +243,22 @@ public class Company {
      */
     private String checkDate(int index,Employee[] temp)
     {
-        String date_to_string = ""+temp[index].profile.getDateHired().getYear();
+        String date_to_string = "" + temp[index].profile.getDateHired().getYear();
         if(temp[index].profile.getDateHired().getMonth()<10)
         {
-            date_to_string=date_to_string+"0"+temp[index].profile.getDateHired().getMonth();
+            date_to_string = date_to_string + "0" + temp[index].profile.getDateHired().getMonth();
         }
         else
         {
-            date_to_string=date_to_string+temp[index].profile.getDateHired().getMonth();
+            date_to_string = date_to_string + temp[index].profile.getDateHired().getMonth();
         }
         if(temp[index].profile.getDateHired().getDay()<10)
         {
-            date_to_string=date_to_string+"0"+temp[index].profile.getDateHired().getDay();
+            date_to_string = date_to_string+ "0" + temp[index].profile.getDateHired().getDay();
         }
         else
         {
-            date_to_string=date_to_string+temp[index].profile.getDateHired().getDay();
+            date_to_string = date_to_string + temp[index].profile.getDateHired().getDay();
         }
         return date_to_string;
     }
